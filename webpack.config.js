@@ -11,6 +11,7 @@ module.exports = {
         open: false,
         port: 1337,
         watchContentBase: true,
+        historyApiFallback: true,
     },
     module: {
         rules: [

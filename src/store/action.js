@@ -6,6 +6,8 @@ export const ActionType = {
   INCREMENT_STEP: `INCREMENT_STEP`,
   RESET_GAME: `RESET_GAME`,
   LOAD_QUESTIONS: `LOAD_QUESTIONS`,
+  REQUIRED_AUTHORIZATION: `REQUIRED_AUTHORIZATION`,
+  REDIRECT_TO_ROUTE: `REDIRECT_TO_ROUTE`,
 };
 
 export const incrementStep = () => ({
@@ -19,6 +21,7 @@ export const resetGame = () => ({
 
 export const incrementMistake = (question, userAnswer) => {
   let answerIsCorrect = false;
+
   switch (question.type) {
     case GameType.ARTIST:
       answerIsCorrect = isArtistAnswerCorrect(question, userAnswer);
@@ -27,6 +30,7 @@ export const incrementMistake = (question, userAnswer) => {
       answerIsCorrect = isGenreAnswerCorrect(question, userAnswer);
       break;
   }
+
   return {
     type: ActionType.INCREMENT_MISTAKES,
     payload: answerIsCorrect ? 0 : 1,
@@ -36,4 +40,14 @@ export const incrementMistake = (question, userAnswer) => {
 export const loadQuestions = (questions) => ({
   type: ActionType.LOAD_QUESTIONS,
   payload: questions,
+});
+
+export const requireAuthorization = (status) => ({
+  type: ActionType.REQUIRED_AUTHORIZATION,
+  payload: status,
+});
+
+export const redirectToRoute = (url) => ({
+  type: ActionType.REDIRECT_TO_ROUTE,
+  payload: url,
 });

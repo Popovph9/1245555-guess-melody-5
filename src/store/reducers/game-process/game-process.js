@@ -14,16 +14,18 @@ const gameProcess = (state = initialState, action) => {
       return extend(state, {
         step: nextStep,
       });
-    case ActionType.INCREMENT_MISTAKES:
 
+    case ActionType.INCREMENT_MISTAKES:
       return extend(state, {
         mistakes: state.mistakes + action.payload,
       });
+
     case ActionType.RESET_GAME:
       return extend({}, initialState);
   }
 
   return state;
 };
+
 
 export {gameProcess};

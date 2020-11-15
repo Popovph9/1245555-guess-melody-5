@@ -6,7 +6,6 @@ import {resetGame} from "../../store/action";
 const WinScreen = (props) => {
   const {questionsCount, mistakesCount, onReplayButtonClick, resetGameAction} = props;
   const correctlyQuestionsCount = questionsCount - mistakesCount;
-
   return (
     <section className="result">
       <div className="result__logo">

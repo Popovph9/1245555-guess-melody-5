@@ -1,7 +1,6 @@
 import {extend} from "../../../utils";
 import {ActionType} from "../../action";
 
-
 const initialState = {
   questions: [],
 };
